@@ -10,7 +10,6 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-dnf5 install -y tmux
 
 # Use a COPR Example:
 #
@@ -18,12 +17,6 @@ dnf5 install -y tmux
 # dnf5 -y install package
 # Disable COPRs so they don't end up enabled on the final image:
 # dnf5 -y copr disable ublue-os/staging
-enable_copr() {
-    repo="$1"
-    repo_with_dash="${repo/\//-}"
-    wget "https://copr.fedorainfracloud.org/coprs/${repo}/repo/fedora-${RELEASE}/${repo_with_dash}-fedora-${RELEASE}.repo" \
-        -O "/etc/yum.repos.d/_copr_${repo_with_dash}.repo"
-}
 
 dnf5 install -y --setopt=install_weak_deps=False \
     gcc-c++ \
@@ -36,7 +29,7 @@ dnf5 install -y --setopt=install_weak_deps=False \
     scdoc \
     dnf-plugins-core
 
-enable_copr solopasha/hyprland
+dnf5 copr enable solopasha/hyprland
 
 dnf5 install -y --setopt=install_weak_deps=True \
     xdg-desktop-portal-hyprland \
