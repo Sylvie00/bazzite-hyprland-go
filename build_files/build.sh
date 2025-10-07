@@ -28,7 +28,8 @@ dnf5 install -y --setopt=install_weak_deps=False \
     wayland-devel \
     libxkbcommon-devel \
     pango-devel \
-    scdoc
+    scdoc \
+    dnf-plugins-core
 
 enable_copr solopasha/hyprland
 
