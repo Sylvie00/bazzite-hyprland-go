@@ -21,4 +21,26 @@ dnf5 install -y tmux
 
 #### Example for enabling a System Unit File
 
+enable_copr solopasha/hyprland
+
+dnf5 install -y --setopt=install_weak_deps=True \
+    xdg-desktop-portal-hyprland \
+    hyprland \
+    hyprpaper \
+    hyprland-qtutils \
+    hyprpolkitagent \
+    nwg-drawer \
+    wdisplays \
+    pavucontrol \
+    brightnessctl \
+    NetworkManager-tui \
+    adw-gtk3-theme \
+    hyprshot \
+    hyprpanel \
+    matugen \
+    qt6ct \
+    nwg-look \
+    rofi-wayland \
+    htop
+
 systemctl enable podman.socket
