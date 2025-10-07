@@ -1,6 +1,8 @@
 # Allow build scripts to be referenced without being copied into the final image
 FROM scratch AS ctx
 COPY build_files /
+COPY bin/* /usr/bin/
+COPY *.service /usr/etc/systemd/system/
 
 # Base Image
 FROM ghcr.io/ublue-os/bazzite-deck:stable
