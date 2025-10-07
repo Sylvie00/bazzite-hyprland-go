@@ -20,7 +20,12 @@ dnf5 install -y tmux
 # dnf5 -y copr disable ublue-os/staging
 
 #### Example for enabling a System Unit File
-
+enable_copr() {
+    repo="$1"
+    repo_with_dash="${repo/\//-}"
+    wget "https://copr.fedorainfracloud.org/coprs/${repo}/repo/fedora-${RELEASE}/${repo_with_dash}-fedora-${RELEASE}.repo" \
+        -O "/etc/yum.repos.d/_copr_${repo_with_dash}.repo"
+}
 enable_copr solopasha/hyprland
 
 dnf5 install -y --setopt=install_weak_deps=True \
