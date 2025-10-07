@@ -29,7 +29,7 @@ dnf5 install -y --setopt=install_weak_deps=False \
     scdoc \
     dnf-plugins-core
 
-dnf5 copr enable solopasha/hyprland
+dnf5 -y copr enable solopasha/hyprland
 
 dnf5 install -y --setopt=install_weak_deps=True \
     xdg-desktop-portal-hyprland \
