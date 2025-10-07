@@ -18,8 +18,13 @@ dnf5 install -y tmux
 # dnf5 -y install package
 # Disable COPRs so they don't end up enabled on the final image:
 # dnf5 -y copr disable ublue-os/staging
+enable_copr() {
+    repo="$1"
+    repo_with_dash="${repo/\//-}"
+    wget "https://copr.fedorainfracloud.org/coprs/${repo}/repo/fedora-${RELEASE}/${repo_with_dash}-fedora-${RELEASE}.repo" \
+        -O "/etc/yum.repos.d/_copr_${repo_with_dash}.repo"
+}
 
-#### Example for enabling a System Unit File
 dnf5 install -y --setopt=install_weak_deps=False \
     gcc-c++ \
     cmake \
