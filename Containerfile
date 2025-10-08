@@ -2,8 +2,6 @@ ARG SOURCE_IMAGE="bazzite"
 ARG SOURCE_SUFFIX="-deck"
 ARG SOURCE_TAG="stable"
 FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG}
-COPY bin/* /usr/bin/
-COPY *.service /usr/etc/systemd/system/
 COPY build.sh /tmp/build.sh
 
 RUN set -ex; \

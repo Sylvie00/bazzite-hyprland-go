@@ -29,29 +29,9 @@ dnf5 install -y --setopt=install_weak_deps=False \
     scdoc \
     dnf-plugins-core
 
-dnf5 -y copr enable solopasha/hyprland
-dnf5 -y copr enable atim/starship
 
 dnf5 install -y --setopt=install_weak_deps=True \
-    xdg-desktop-portal-hyprland \
-    hyprland \
-    hyprpaper \
-    hyprland-qtutils \
-    hyprpolkitagent \
-    nwg-drawer \
-    wdisplays \
-    pavucontrol \
-    brightnessctl \
-    NetworkManager-tui \
-    adw-gtk3-theme \
-    hyprshot \
-    hyprpanel \
     matugen \
-    qt6ct \
-    nwg-look \
-    rofi-wayland \
-    starship \
-    stow \
     blueman \
     htop
 
