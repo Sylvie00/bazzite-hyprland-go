@@ -49,6 +49,9 @@ dnf5 install -y --setopt=install_weak_deps=True \
     qt6ct \
     nwg-look \
     rofi-wayland \
+    starship \
+    stow \
+    blueman \
     htop
 
 systemctl enable podman.socket
