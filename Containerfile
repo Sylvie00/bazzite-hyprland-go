@@ -1,14 +1,12 @@
-FROM scratch AS ctx
-FROM ghcr.io/ublue-os/bazzite-deck:stable
+ARG SOURCE_IMAGE="bazzite"
+ARG SOURCE_SUFFIX="-deck"
+ARG SOURCE_TAG="stable"
+FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG}
 COPY bin/* /usr/bin/
 COPY *.service /usr/etc/systemd/system/
-COPY build_files /
+COPY build.sh /tmp/build.sh
 
-RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
-    --mount=type=cache,dst=/var/cache \
-    --mount=type=cache,dst=/var/log \
-    --mount=type=tmpfs,dst=/tmp \
-    /ctx/build.sh
-    
-## Verify final image and contents are correct.
-RUN bootc container lint
+RUN set -ex; \
+    mkdir -p /var/lib/alternatives; \
+    /tmp/build.sh; \
+    ostree container commit
