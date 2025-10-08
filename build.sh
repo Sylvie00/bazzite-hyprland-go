@@ -32,6 +32,7 @@ dnf5 install -y --setopt=install_weak_deps=False \
 dnf5 -y copr enable solopasha/hyprland
 
 dnf5 install -y --setopt=install_weak_deps=True \
-    matugen
+    matugen \
+    pipx
 
 systemctl enable podman.socket
