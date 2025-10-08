@@ -29,10 +29,9 @@ dnf5 install -y --setopt=install_weak_deps=False \
     scdoc \
     dnf-plugins-core
 
+dnf5 -y copr enable solopasha/hyprland
 
 dnf5 install -y --setopt=install_weak_deps=True \
-    matugen \
-    blueman \
-    htop
+    matugen
 
 systemctl enable podman.socket
