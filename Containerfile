@@ -5,9 +5,6 @@ COPY build_files /
 # Base Image
 FROM ghcr.io/ublue-os/bazzite-deck:stable
 
-COPY bin/* /usr/bin/
-COPY *.service /usr/etc/systemd/system/
-
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:latest
 # FROM ghcr.io/ublue-os/bluefin-nvidia:stable
