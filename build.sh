@@ -30,9 +30,10 @@ dnf5 install -y --setopt=install_weak_deps=False \
     dnf-plugins-core
 
 dnf5 -y copr enable solopasha/hyprland
+dnf5 -y copr enable luisbocanegra/kde-material-you-colors
 
 dnf5 install -y --setopt=install_weak_deps=True \
     matugen \
-    pipx
+    kde-material-you-colors
 
 systemctl enable podman.socket
